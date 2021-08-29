@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/red16.png" type="Texture" id=1]
+[ext_resource path="res://assets/red32.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Goal.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 31.9922, 31.9922 )
+extents = Vector2( 15.9844, 15.9844 )
 
 [node name="Goal" type="Area2D" groups=[
 "Goal",
