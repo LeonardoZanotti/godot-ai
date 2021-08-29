@@ -48,6 +48,11 @@ tile_data = PoolIntArray( 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 
 [node name="Goal" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1031.51, 256.2 )
 
-[node name="AI Folder" type="Node2D" parent="."]
+[node name="AI_Folder" type="Node2D" parent="."]
+position = Vector2( 294.489, 362.448 )
 
-[node name="AI" parent="AI Folder" instance=ExtResource( 4 )]
+[node name="AI" parent="AI_Folder" instance=ExtResource( 4 )]
+visible = false
+position = Vector2( -0.44751, -1.41949 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

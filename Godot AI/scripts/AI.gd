@@ -38,3 +38,38 @@ func _ready() -> void:
 			else:
 				# else, just keeps the best genome
 				genome[i] = Global.bestDNA[i]
+
+# AI Timer passed 0.05 seconds
+func _on_Timer_timeout() -> void:
+	if alive:
+		# the ai is alive, so go to the next direction
+		spotInGenome += 1
+	else:
+		# ai is dead
+		dead = true
+
+# runs about 60 times per second and tries to do equal pauses between each frame
+func _physics_process(delta: float) -> void:
+	if alive:
+		# ai is alive
+		if !dead and spotInGenome < genome.size():
+			# ai is not dead and the next direction is a valid one
+			# set next direction
+			global_position += genome[spotInGenome]
+		else:
+			# die
+			die()
+
+# ai died
+func die() -> void:
+	dead = true
+	# how far away the ai was from the goal
+	fitness = ((global_position.distance_squared_to(goal.global_position)))
+
+func _on_AI_body_entered(body: Node) -> void:
+	if body:
+		dead = true
+
+func _on_AI_goal_entered(goal: Area2D) -> void:
+	if goal:
+		die()
