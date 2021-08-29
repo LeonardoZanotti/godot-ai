@@ -70,6 +70,6 @@ func _on_AI_body_entered(body: Node) -> void:
 	if body:
 		dead = true
 
-func _on_AI_goal_entered(goal: Area2D) -> void:
-	if goal:
+func _on_AI_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Goal"):
 		die()
